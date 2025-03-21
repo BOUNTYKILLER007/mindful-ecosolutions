@@ -5,7 +5,7 @@ import Button from './Button';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-between items-center pt-16 pb-12 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-wellness-sage/30 blur-3xl"></div>
@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-[15%] w-80 h-80 rounded-full bg-wellness-ocean/10 blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 flex-grow flex flex-col items-center justify-center">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           <Reveal>
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium rounded-full bg-wellness-sage/30 text-wellness-moss">
@@ -36,7 +36,7 @@ const Hero = () => {
           </Reveal>
 
           <Reveal delay={600}>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg">
                 Start Your Journey
               </Button>
@@ -45,20 +45,20 @@ const Hero = () => {
               </Button>
             </div>
           </Reveal>
-
-          <Reveal delay={800}>
-            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-80 animate-gentle-float">
-              <p className="text-sm font-medium mb-2">Discover More</p>
-              <a 
-                href="#services" 
-                className="w-10 h-10 rounded-full border border-wellness-moss/40 flex items-center justify-center hover:border-wellness-moss transition-colors"
-              >
-                <ArrowDown size={20} className="text-wellness-moss" />
-              </a>
-            </div>
-          </Reveal>
         </div>
       </div>
+
+      <Reveal delay={800}>
+        <div className="flex flex-col items-center mt-8 mb-4 opacity-80 animate-gentle-float">
+          <p className="text-sm font-medium mb-2">Discover More</p>
+          <a 
+            href="#services" 
+            className="w-10 h-10 rounded-full border border-wellness-moss/40 flex items-center justify-center hover:border-wellness-moss transition-colors"
+          >
+            <ArrowDown size={20} className="text-wellness-moss" />
+          </a>
+        </div>
+      </Reveal>
     </section>
   );
 };
