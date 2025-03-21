@@ -1,5 +1,5 @@
 
-import { ChevronRight, Heart } from 'lucide-react';
+import { ChevronRight, Heart, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -93,7 +93,42 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-wellness-stone/30 flex flex-col md:flex-row justify-between items-center">
+        {/* Social Media Section */}
+        <div className="mt-12 pt-6 border-t border-wellness-stone/30 flex flex-col items-center">
+          <h3 className="text-lg font-serif font-medium mb-4">Follow Us</h3>
+          <div className="flex space-x-6 mb-8">
+            <a
+              href="#facebook"
+              className="w-10 h-10 rounded-full bg-wellness-sage/20 flex items-center justify-center hover:bg-wellness-moss hover:text-white transition-colors"
+              aria-label="Visit our Facebook page"
+            >
+              <Facebook size={20} />
+            </a>
+            <a
+              href="#twitter"
+              className="w-10 h-10 rounded-full bg-wellness-sage/20 flex items-center justify-center hover:bg-wellness-moss hover:text-white transition-colors"
+              aria-label="Visit our Twitter page"
+            >
+              <Twitter size={20} />
+            </a>
+            <a
+              href="#instagram"
+              className="w-10 h-10 rounded-full bg-wellness-sage/20 flex items-center justify-center hover:bg-wellness-moss hover:text-white transition-colors"
+              aria-label="Visit our Instagram page"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="#linkedin"
+              className="w-10 h-10 rounded-full bg-wellness-sage/20 flex items-center justify-center hover:bg-wellness-moss hover:text-white transition-colors"
+              aria-label="Visit our LinkedIn page"
+            >
+              <Linkedin size={20} />
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-wellness-stone/30 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
             &copy; {currentYear} Holistic Wellbeing Solutions. All rights reserved.
           </p>
