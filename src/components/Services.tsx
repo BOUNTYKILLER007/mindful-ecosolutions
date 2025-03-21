@@ -4,6 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import Reveal from './Reveal';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState("individual");
@@ -76,16 +78,49 @@ const Services = () => {
 
         <div className="mt-12">
           <Tabs defaultValue="individual" className="w-full" onValueChange={setActiveTab}>
-            <TabsList className="grid w-full max-w-md mx-auto mb-12 grid-cols-2">
-              <TabsTrigger value="individual">Individual Services</TabsTrigger>
-              <TabsTrigger value="corporate">Corporate Services</TabsTrigger>
+            <TabsList className="grid w-full max-w-md mx-auto mb-12 grid-cols-2 bg-wellness-sand/50 p-1.5">
+              <TabsTrigger 
+                value="individual" 
+                className={cn(
+                  "transition-all duration-300 font-medium",
+                  activeTab === "individual" 
+                    ? "bg-wellness-clay/20 text-wellness-moss" 
+                    : "text-muted-foreground hover:text-wellness-clay"
+                )}
+              >
+                Individual Services
+                {activeTab === "individual" && (
+                  <Badge variant="outline" className="ml-2 bg-wellness-sage/20 text-wellness-moss border-wellness-moss/20 px-2 py-0">
+                    {services.individual.length}
+                  </Badge>
+                )}
+              </TabsTrigger>
+              <TabsTrigger 
+                value="corporate" 
+                className={cn(
+                  "transition-all duration-300 font-medium",
+                  activeTab === "corporate" 
+                    ? "bg-wellness-clay/20 text-wellness-moss" 
+                    : "text-muted-foreground hover:text-wellness-clay"
+                )}
+              >
+                Corporate Services
+                {activeTab === "corporate" && (
+                  <Badge variant="outline" className="ml-2 bg-wellness-sage/20 text-wellness-moss border-wellness-moss/20 px-2 py-0">
+                    {services.corporate.length}
+                  </Badge>
+                )}
+              </TabsTrigger>
             </TabsList>
             
             <TabsContent value="individual" className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.individual.map((service, index) => (
                   <Reveal key={service.title} delay={300 + index * 100}>
-                    <ServiceCard {...service} />
+                    <ServiceCard 
+                      {...service} 
+                      className={activeTab === "individual" ? "border border-wellness-sage/30 hover:border-wellness-moss/40" : ""}
+                    />
                   </Reveal>
                 ))}
               </div>
@@ -95,7 +130,10 @@ const Services = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.corporate.map((service, index) => (
                   <Reveal key={service.title} delay={300 + index * 100}>
-                    <ServiceCard {...service} />
+                    <ServiceCard 
+                      {...service} 
+                      className={activeTab === "corporate" ? "border border-wellness-sage/30 hover:border-wellness-moss/40" : ""}
+                    />
                   </Reveal>
                 ))}
               </div>
